@@ -1,0 +1,21 @@
+#Tell R to install the `readxl` package
+install.packages("readxl")
+#Tell R to make "readxl" available for use
+library(readxl)
+#importing dataset Approve21 on USA Presidential Elections - Approval of Joe Biden"
+#look at dimensions of dataset
+dim(Approve21)
+#look at the variables of the dataset
+names(Approve21)
+#check class of dataset
+sapply(Approve21, class)
+#check top and bottom rows of dataset
+head(Approve21)
+tail(Approve21)
+#Organise dataset as per Approval Ratings
+Approve21 <-  Approve21[order(Approve21$Approve), ]
+head(Approve21[c('state', 'Approve')])
+tail(Approve21[c('state', 'Approve')])
+#create a histogram to plot the data
+hist(Approve21$Approve, main="State-level Presidential Approval 2017-19",
+     xlab="% Approval", col="#02a36e")    
